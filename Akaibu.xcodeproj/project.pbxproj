@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A299A6D21BC16E59004FDB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299A6D11BC16E59004FDB17 /* AppDelegate.swift */; };
+		A299A6D41BC16E59004FDB17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299A6D31BC16E59004FDB17 /* ViewController.swift */; };
+		A299A6D71BC16E59004FDB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A299A6D51BC16E59004FDB17 /* Main.storyboard */; };
+		A299A6D91BC16E59004FDB17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A299A6D81BC16E59004FDB17 /* Assets.xcassets */; };
+		A299A6DC1BC16E59004FDB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A299A6DA1BC16E59004FDB17 /* LaunchScreen.storyboard */; };
+		A299A6E41BC16E6E004FDB17 /* Akaibu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299A6E31BC16E6E004FDB17 /* Akaibu.swift */; settings = {ASSET_TAGS = (); }; };
+		A299A6E61BC16E84004FDB17 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299A6E51BC16E84004FDB17 /* Model.swift */; settings = {ASSET_TAGS = (); }; };
+		A2D5194B1BC181A300E88336 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5194A1BC181A300E88336 /* Child.swift */; settings = {ASSET_TAGS = (); }; };
+		A2D5194D1BC188C800E88336 /* AkaibuDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5194C1BC188C800E88336 /* AkaibuDatabase.swift */; settings = {ASSET_TAGS = (); }; };
+		A2D5194F1BC1890A00E88336 /* DocumentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5194E1BC1890A00E88336 /* DocumentHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		A2D519511BC18BC100E88336 /* AkaibuCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D519501BC18BC100E88336 /* AkaibuCollection.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A299A6CE1BC16E59004FDB17 /* Akaibu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akaibu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A299A6D11BC16E59004FDB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A299A6D31BC16E59004FDB17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A299A6D61BC16E59004FDB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A299A6D81BC16E59004FDB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A299A6DB1BC16E59004FDB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A299A6DD1BC16E59004FDB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A299A6E31BC16E6E004FDB17 /* Akaibu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Akaibu.swift; sourceTree = "<group>"; };
+		A299A6E51BC16E84004FDB17 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A2D5194A1BC181A300E88336 /* Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
+		A2D5194C1BC188C800E88336 /* AkaibuDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkaibuDatabase.swift; sourceTree = "<group>"; };
+		A2D5194E1BC1890A00E88336 /* DocumentHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentHelper.swift; sourceTree = "<group>"; };
+		A2D519501BC18BC100E88336 /* AkaibuCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkaibuCollection.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A299A6CB1BC16E59004FDB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A299A6C51BC16E59004FDB17 = {
+			isa = PBXGroup;
+			children = (
+				A299A6D01BC16E59004FDB17 /* Akaibu */,
+				A299A6CF1BC16E59004FDB17 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A299A6CF1BC16E59004FDB17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A299A6CE1BC16E59004FDB17 /* Akaibu.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A299A6D01BC16E59004FDB17 /* Akaibu */ = {
+			isa = PBXGroup;
+			children = (
+				A299A6D11BC16E59004FDB17 /* AppDelegate.swift */,
+				A299A6D31BC16E59004FDB17 /* ViewController.swift */,
+				A299A6D51BC16E59004FDB17 /* Main.storyboard */,
+				A299A6D81BC16E59004FDB17 /* Assets.xcassets */,
+				A299A6DA1BC16E59004FDB17 /* LaunchScreen.storyboard */,
+				A299A6DD1BC16E59004FDB17 /* Info.plist */,
+				A299A6E31BC16E6E004FDB17 /* Akaibu.swift */,
+				A2D5194C1BC188C800E88336 /* AkaibuDatabase.swift */,
+				A2D519501BC18BC100E88336 /* AkaibuCollection.swift */,
+				A299A6E51BC16E84004FDB17 /* Model.swift */,
+				A2D5194A1BC181A300E88336 /* Child.swift */,
+				A2D5194E1BC1890A00E88336 /* DocumentHelper.swift */,
+			);
+			path = Akaibu;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A299A6CD1BC16E59004FDB17 /* Akaibu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A299A6E01BC16E59004FDB17 /* Build configuration list for PBXNativeTarget "Akaibu" */;
+			buildPhases = (
+				A299A6CA1BC16E59004FDB17 /* Sources */,
+				A299A6CB1BC16E59004FDB17 /* Frameworks */,
+				A299A6CC1BC16E59004FDB17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Akaibu;
+			productName = Akaibu;
+			productReference = A299A6CE1BC16E59004FDB17 /* Akaibu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A299A6C61BC16E59004FDB17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = lerryrowy;
+				TargetAttributes = {
+					A299A6CD1BC16E59004FDB17 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = A299A6C91BC16E59004FDB17 /* Build configuration list for PBXProject "Akaibu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A299A6C51BC16E59004FDB17;
+			productRefGroup = A299A6CF1BC16E59004FDB17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A299A6CD1BC16E59004FDB17 /* Akaibu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A299A6CC1BC16E59004FDB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A299A6DC1BC16E59004FDB17 /* LaunchScreen.storyboard in Resources */,
+				A299A6D91BC16E59004FDB17 /* Assets.xcassets in Resources */,
+				A299A6D71BC16E59004FDB17 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A299A6CA1BC16E59004FDB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A299A6E41BC16E6E004FDB17 /* Akaibu.swift in Sources */,
+				A299A6D41BC16E59004FDB17 /* ViewController.swift in Sources */,
+				A2D519511BC18BC100E88336 /* AkaibuCollection.swift in Sources */,
+				A299A6D21BC16E59004FDB17 /* AppDelegate.swift in Sources */,
+				A2D5194D1BC188C800E88336 /* AkaibuDatabase.swift in Sources */,
+				A2D5194B1BC181A300E88336 /* Child.swift in Sources */,
+				A2D5194F1BC1890A00E88336 /* DocumentHelper.swift in Sources */,
+				A299A6E61BC16E84004FDB17 /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A299A6D51BC16E59004FDB17 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A299A6D61BC16E59004FDB17 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A299A6DA1BC16E59004FDB17 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A299A6DB1BC16E59004FDB17 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A299A6DE1BC16E59004FDB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A299A6DF1BC16E59004FDB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A299A6E11BC16E59004FDB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Akaibu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lerryrowy.Akaibu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A299A6E21BC16E59004FDB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Akaibu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lerryrowy.Akaibu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A299A6C91BC16E59004FDB17 /* Build configuration list for PBXProject "Akaibu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A299A6DE1BC16E59004FDB17 /* Debug */,
+				A299A6DF1BC16E59004FDB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A299A6E01BC16E59004FDB17 /* Build configuration list for PBXNativeTarget "Akaibu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A299A6E11BC16E59004FDB17 /* Debug */,
+				A299A6E21BC16E59004FDB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A299A6C61BC16E59004FDB17 /* Project object */;
+}
