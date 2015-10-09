@@ -28,7 +28,7 @@ class AkaibuCollection: Akaibu {
     return AkaibuDB.currentInstance().collectionNameWithRespectToDB(self.key)
   }
   
-  override func save() {
+  func save() {
     // since the objectId is neglected, there should be no difference between update: true / update: false
 //    self.archive(update: false)
     self.keyForArchive = self.archivedKey()

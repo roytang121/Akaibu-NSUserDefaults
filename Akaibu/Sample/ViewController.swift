@@ -26,7 +26,7 @@ class ViewController: UIViewController {
   //    model.aArray.append(10000)
       model.parentName = "ABC"
       
-      model.save()
+//      model.save()
 //    }
     
 //    model.save()
@@ -40,9 +40,9 @@ class ViewController: UIViewController {
     
 //    newModel?.save()
     
-    let results = db.collection("Child").find(options: ["parentName": "ABC"]) as? [Child]
+//    let results = db.collection("Child").find(options: ["parentName": "ABC"]) as? [Child]
     
-    print(results?.count)
+//    print(results?.count)
 //    print(db.collection("Child").documents)
     
 //    let collections = Akaibu.unarchive("debug:v1:Child") as? AkaibuCollection
