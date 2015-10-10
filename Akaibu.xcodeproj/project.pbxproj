@@ -16,9 +16,7 @@
 		A299A6E41BC16E6E004FDB17 /* Akaibu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299A6E31BC16E6E004FDB17 /* Akaibu.swift */; settings = {ASSET_TAGS = (); }; };
 		A299A6E61BC16E84004FDB17 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299A6E51BC16E84004FDB17 /* Model.swift */; settings = {ASSET_TAGS = (); }; };
 		A2D5194B1BC181A300E88336 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5194A1BC181A300E88336 /* Child.swift */; settings = {ASSET_TAGS = (); }; };
-		A2D5194D1BC188C800E88336 /* AkaibuDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5194C1BC188C800E88336 /* AkaibuDatabase.swift */; settings = {ASSET_TAGS = (); }; };
-		A2D5194F1BC1890A00E88336 /* DocumentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5194E1BC1890A00E88336 /* DocumentHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		A2D519511BC18BC100E88336 /* AkaibuCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D519501BC18BC100E88336 /* AkaibuCollection.swift */; settings = {ASSET_TAGS = (); }; };
+		A2DE97151BC7BB1800BB231E /* AModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE97141BC7BB1800BB231E /* AModel.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +30,7 @@
 		A299A6E31BC16E6E004FDB17 /* Akaibu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Akaibu.swift; sourceTree = "<group>"; };
 		A299A6E51BC16E84004FDB17 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A2D5194A1BC181A300E88336 /* Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
-		A2D5194C1BC188C800E88336 /* AkaibuDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkaibuDatabase.swift; sourceTree = "<group>"; };
-		A2D5194E1BC1890A00E88336 /* DocumentHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentHelper.swift; sourceTree = "<group>"; };
-		A2D519501BC18BC100E88336 /* AkaibuCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkaibuCollection.swift; sourceTree = "<group>"; };
+		A2DE97141BC7BB1800BB231E /* AModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +47,14 @@
 		A27B87E11BC2A4E200E78DC4 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				A299A6E51BC16E84004FDB17 /* Model.swift */,
+				A2D5194A1BC181A300E88336 /* Child.swift */,
 				A299A6D81BC16E59004FDB17 /* Assets.xcassets */,
 				A299A6DA1BC16E59004FDB17 /* LaunchScreen.storyboard */,
 				A299A6D11BC16E59004FDB17 /* AppDelegate.swift */,
 				A299A6D31BC16E59004FDB17 /* ViewController.swift */,
 				A299A6D51BC16E59004FDB17 /* Main.storyboard */,
+				A2DE97141BC7BB1800BB231E /* AModel.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -82,11 +81,6 @@
 				A27B87E21BC2A5F100E78DC4 /* Info.plist */,
 				A27B87E11BC2A4E200E78DC4 /* Sample */,
 				A299A6E31BC16E6E004FDB17 /* Akaibu.swift */,
-				A2D5194C1BC188C800E88336 /* AkaibuDatabase.swift */,
-				A2D519501BC18BC100E88336 /* AkaibuCollection.swift */,
-				A299A6E51BC16E84004FDB17 /* Model.swift */,
-				A2D5194A1BC181A300E88336 /* Child.swift */,
-				A2D5194E1BC1890A00E88336 /* DocumentHelper.swift */,
 			);
 			path = Akaibu;
 			sourceTree = "<group>";
@@ -164,11 +158,9 @@
 			files = (
 				A299A6E41BC16E6E004FDB17 /* Akaibu.swift in Sources */,
 				A299A6D41BC16E59004FDB17 /* ViewController.swift in Sources */,
-				A2D519511BC18BC100E88336 /* AkaibuCollection.swift in Sources */,
 				A299A6D21BC16E59004FDB17 /* AppDelegate.swift in Sources */,
-				A2D5194D1BC188C800E88336 /* AkaibuDatabase.swift in Sources */,
+				A2DE97151BC7BB1800BB231E /* AModel.swift in Sources */,
 				A2D5194B1BC181A300E88336 /* Child.swift in Sources */,
-				A2D5194F1BC1890A00E88336 /* DocumentHelper.swift in Sources */,
 				A299A6E61BC16E84004FDB17 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

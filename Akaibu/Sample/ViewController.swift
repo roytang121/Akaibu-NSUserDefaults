@@ -13,40 +13,27 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
+//    let model = Child()
+//    model.code = "aCode"
+//    model.parentName = "aParent"
     
-    let db = AkaibuDB.connect("debug:v1")
+    let loaded = Akaibu.loadWithKey("model-1") as? Child
     
-    // Do any additional setup after loading the view, typically from a nib.
-//    for _ in (0...10000) {
-    let model = Child()
-      model.code = "abc"
-      model.name = "aNameaName"
-      model.childKey = "changed!"
-  //    model.aArray.append(10000)
-      model.parentName = "ABC"
-      
-//      model.save()
-//    }
+    print(loaded?.dictionaryWithValuesForKeys(["code", "parentName", "name"]))
+    let ud = NSUserDefaults.standardUserDefaults()
     
-//    model.save()
     
-//    print(model.keyForArchive)
-////    Akaibu.archive(obj: model, _class: Model.classForCoder())
+//    let b = BModel()
+//    b.saveWithKey("amodel")
+//    b.bName = "bbbbb"
 //    
-//    let newModel = Akaibu.unarchive(model.keyForArchive) as? Child
+//    ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(b), forKey: "amodel")
+//    
+//    ud.synchronize()
     
-//    print(newModel?.keyForArchive)
+    let a  = (NSKeyedUnarchiver.unarchiveObjectWithData(ud.objectForKey("amodel") as! NSData) as! BModel)
     
-//    newModel?.save()
-    
-//    let results = db.collection("Child").find(options: ["parentName": "ABC"]) as? [Child]
-    
-//    print(results?.count)
-//    print(db.collection("Child").documents)
-    
-//    let collections = Akaibu.unarchive("debug:v1:Child") as? AkaibuCollection
-//    print(collections?.documents)
+    print(a)
   }
 
   override func didReceiveMemoryWarning() {
