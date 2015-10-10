@@ -13,8 +13,9 @@ import Foundation
 
 class Akaibu: NSObject, NSCoding, AkaibuProtocol {
   
-  var parentName: String! = "Parent"
-  var keyForArchive: String!
+  internal var parentName: String! = "Akaibu"
+  static let SUITE_NAME = "Akaibu"
+  
   var objectId: String!
   
   override init() {
@@ -28,8 +29,9 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
     while (_class != nil && _class != NSObject.self) {
       let properties = Akaibu.getProperties(_class!)
       for (name, _) in properties {
-        let value = aDecoder.decodeObjectForKey(self.keyWithName(name))
-        self.setValue(value, forKey: name)
+        print(name)
+//        let value = aDecoder.decodeObjectForKey(self.encodingKeyForPropertyWithName(name))
+//        self.setValue(value, forKey: name)
       }
       _class = _class?.superclass()
     }
@@ -38,9 +40,6 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
   func encodeWithCoder(aCoder: NSCoder) {
     print("encodeWithCoder \(self.dynamicType)")
     
-//    print(properties)
-    
-    
     // add properties relatives to superclass
     var _class: AnyClass? = self.classForCoder
     
@@ -48,48 +47,17 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
       let properties = Akaibu.getProperties(_class!)
       for (name, _) in properties {
         let value = self.valueForKey(name)
-        aCoder.encodeObject(value, forKey: self.keyWithName(name))
+        aCoder.encodeObject(value, forKey: self.encodingKeyForPropertyWithName(name))
       }
       _class = _class?.superclass()
     }
   }
   
-  func keyWithName(name: String) -> String {
-    return "\(name)"
+  private func encodingKeyForPropertyWithName(name: String) -> String {
+    return name
   }
   
-  func archivedKey() -> String {
-    return "\(AkaibuDB.currentInstance()!.name):\(self.getCollection()):\(self.objectId)"
-//    return "\(self.dynamicType)"
-  }
-  
-  func archive(update update: Bool) {
-    if self.objectId == nil || !update {
-      objectId = NSUUID().UUIDString
-    }
-    
-    // call archivedKey after objectId has been set
-    keyForArchive = archivedKey()
-    
-    let data = NSKeyedArchiver.archivedDataWithRootObject(self)
-    let userDefaults = NSUserDefaults.standardUserDefaults()
-    userDefaults.setObject(data, forKey: self.keyForArchive)
-    userDefaults.synchronize()
-  }
-  
-  class func unarchive(key: String) -> AnyObject? {
-    let userDefaults = NSUserDefaults.standardUserDefaults()
-
-    if let obj = userDefaults.objectForKey(key) as? NSData {
-      if let data = NSKeyedUnarchiver.unarchiveObjectWithData(obj) {
-        return data
-      }
-    }
-    
-    return nil
-  }
-  
-  static func getProperties(_class: AnyClass) -> [String: String] {
+  private static func getProperties(_class: AnyClass) -> [String: String] {
     var count: UInt32 = 0
     var properties = class_copyPropertyList(_class, &count)
 
@@ -105,7 +73,7 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
     }
 
     free(properties)
-//    print(results)
+    
     return results
   }
   
@@ -113,7 +81,7 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
     return NSString(UTF8String: utf8String) as? String
   }
   
-  static func getIVars(_class: AnyClass) {
+  private static func getIVars(_class: AnyClass) {
     var count: UInt32 = 0
     var ivarList = class_copyIvarList(_class, &count)
     
@@ -131,73 +99,6 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
     return "\(self.dynamicType)"
   }
   
-  // CRUD
-  func save() {
-    
-    if self.objectId == nil {
-      self.archive(update: false)
-      
-      // append to collection
-      let collection = AkaibuDB.currentInstance().collection(self.getCollection())
-      collection.documents.append(self)
-      collection.save()
-      return
-      
-    } else {
-    
-      // notify collection changes
-//      let collection = AkaibuDB.currentIntance().collection(self.getCollection())
-      
-      // actually it's not even needed to check the existence of documents
-      
-//      if let index = collection.documents.indexOf(self.objectId) {
-//        self.archive(update: true)
-//      }
-      
-      self.archive(update: true)
-      
-    }
-  }
-  
-//  func find(options: [String: AnyObject]) -> [Akaibu] {
-//    let collection = AkaibuDB.currentInstance().collection(self.getCollection())
-//    for documents in collection.documents {
-//      return [self]
-//    }
-//  }
-  
-  private static func find<T>(_class: T, options: [String : NSObject]?) -> [Akaibu] {
-    var results = [Akaibu]()
-    
-//    let collection = AkaibuDB.currentInstance().collection(self.dynamicType)
-    if let obj = _class as? Akaibu.Type {
-      let classType = obj.classForCoder()
-      
-      let collection = AkaibuDB.currentInstance().collection("\(classType)")
-      var filtered = collection.documents.forEach({ (document) -> Void in
-        
-        if options == nil {
-          results.append(document)
-          return
-        }
-        
-        for (key, targetValue) in options! {
-          if let value = (document as? NSObject)?.valueForKey(key) as? NSObject {
-            if targetValue != value {
-              return
-            }
-          }
-        }
-        
-        results.append(document)
-      })
-      
-    }
-    
-    
-    return results
-  }
-  
   
   override func isEqual(object: AnyObject?) -> Bool {
     if let obj = object as? Akaibu {
@@ -206,5 +107,54 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
       return false
     }
   }
-  // utils
+  
+  
+  // MARK: Public APIs
+  
+  func saveWithKey(key: String) {
+    let data = NSKeyedArchiver.archivedDataWithRootObject(self)
+    
+    if let userDefaults = Akaibu.userDefaults() {
+      userDefaults.setObject(data, forKey: key)
+      userDefaults.synchronize()
+    }
+  }
+  
+  class func saveWithKey(obj: Akaibu, key: String) {
+    obj.saveWithKey(key)
+  }
+  
+  class func loadWithKey(key: String) -> Akaibu? {
+    if let userDefaults = Akaibu.userDefaults() {
+    
+      if let obj = userDefaults.objectForKey(key) as? NSData {
+//        
+//        if let data = NSKeyedUnarchiver.unarchiveObjectWithData(obj) as? Akaibu {
+//          return data
+//        }
+        do {
+          if let data = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(obj) as? Akaibu {
+            return data
+          }
+        } catch (_) {
+          print("Error")
+          return nil
+        }
+      }
+    
+    }
+    return nil
+  }
+  
+  static func userDefaults() -> NSUserDefaults? {
+    return NSUserDefaults(suiteName: Akaibu.SUITE_NAME)
+  }
+  
+  class func removeAll() {
+    let defaults = self.userDefaults()
+    
+    defaults?.dictionaryRepresentation().keys.forEach({ (key) -> () in
+      defaults?.removeObjectForKey(key)
+    })
+  }
 }
