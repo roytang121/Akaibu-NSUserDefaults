@@ -1,6 +1,6 @@
 # Akaibu
 
-What is it ?
+### What is it ?
 
  * **Archive** any class in just **ONE-LINE** of code.
  * **Automatically** map class's properties under the hood.
@@ -21,13 +21,12 @@ class Model: Akaibu {
 ### tl;dr
 That's all you need to know
 ```swift
-Akaibu.saveWithKey(obj, key) // a `static` way
-
-let model = Akaibu.loadWithKey(key) as? Model // Load from NSUserDefaults
-
 model.saveWithKey(key) // archive to NSUserDefaults
 // or
-Akaibu.saveWithKey(model, key) // a `static` way
+Akaibu.saveWithKey(model, key) // archive to NSUserDefaults
+
+
+let model = Akaibu.loadWithKey(key) as? Model // load from NSUserDefaults
 ```
 
 ### Clear saved objects
