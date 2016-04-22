@@ -7,12 +7,13 @@
 //
 
 import Foundation
- protocol AkaibuProtocol {
+protocol AkaibuProtocol {
   func getCollection() -> String
 }
 
 class Akaibu: NSObject, NSCoding, AkaibuProtocol {
   
+  internal static let SuiteNameAkaibu: String = "Akaibu"
   internal var parentName: String! = "Akaibu"
   static let SUITE_NAME = "Akaibu"
   
@@ -29,16 +30,16 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
     while (_class != nil && _class != NSObject.self) {
       let properties = Akaibu.getProperties(_class!)
       for (name, _) in properties {
-        print(name)
-//        let value = aDecoder.decodeObjectForKey(self.encodingKeyForPropertyWithName(name))
-//        self.setValue(value, forKey: name)
+        //        omvlog(name)
+        let value = aDecoder.decodeObjectForKey(self.encodingKeyForPropertyWithName(name))
+        self.setValue(value, forKey: name)
       }
       _class = _class?.superclass()
     }
   }
   
   func encodeWithCoder(aCoder: NSCoder) {
-    print("encodeWithCoder \(self.dynamicType)")
+    //    omvlog("encodeWithCoder \(self.dynamicType)")
     
     // add properties relatives to superclass
     var _class: AnyClass? = self.classForCoder
@@ -59,8 +60,8 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
   
   private static func getProperties(_class: AnyClass) -> [String: String] {
     var count: UInt32 = 0
-    var properties = class_copyPropertyList(_class, &count)
-
+    let properties = class_copyPropertyList(_class, &count)
+    
     var results = [String: String]()
     for i in (0..<count) {
       let property = properties[Int(i)]
@@ -68,10 +69,10 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
       
       let attrs = NSString(UTF8String: property_getAttributes(property)) as! String
       
-//      let ivar = class_getInstanceVariable(_class, name)
+      //      let ivar = class_getInstanceVariable(_class, name)
       results[name] = attrs
     }
-
+    
     free(properties)
     
     return results
@@ -83,7 +84,7 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
   
   private static func getIVars(_class: AnyClass) {
     var count: UInt32 = 0
-    var ivarList = class_copyIvarList(_class, &count)
+    let ivarList = class_copyIvarList(_class, &count)
     
     var results = [String]()
     for i in (0..<count) {
@@ -114,7 +115,7 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
   func saveWithKey(key: String) {
     let data = NSKeyedArchiver.archivedDataWithRootObject(self)
     
-    if let userDefaults = Akaibu.userDefaults() {
+    if let userDefaults = NSUserDefaults(suiteName: Akaibu.SuiteNameAkaibu) {
       userDefaults.setObject(data, forKey: key)
       userDefaults.synchronize()
     }
@@ -125,35 +126,31 @@ class Akaibu: NSObject, NSCoding, AkaibuProtocol {
   }
   
   class func loadWithKey(key: String) -> Akaibu? {
-    if let userDefaults = Akaibu.userDefaults() {
-    
+    if let userDefaults = NSUserDefaults(suiteName: Akaibu.SuiteNameAkaibu) {
+      
       if let obj = userDefaults.objectForKey(key) as? NSData {
-//        
-//        if let data = NSKeyedUnarchiver.unarchiveObjectWithData(obj) as? Akaibu {
-//          return data
-//        }
+        //
+        //        if let data = NSKeyedUnarchiver.unarchiveObjectWithData(obj) as? Akaibu {
+        //          return data
+        //        }
         do {
-          if let data = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(obj) as? Akaibu {
+          if let data = try NSKeyedUnarchiver.unarchiveObjectWithData(obj) as? Akaibu {
             return data
           }
         } catch (_) {
-          print("Error")
+//          omvlog("Error")
           return nil
         }
       }
-    
+      
     }
     return nil
   }
   
-  static func userDefaults() -> NSUserDefaults? {
-    return NSUserDefaults(suiteName: Akaibu.SUITE_NAME)
-  }
-  
   class func removeAll() {
-    let defaults = self.userDefaults()
+    let defaults = NSUserDefaults(suiteName: Akaibu.SuiteNameAkaibu)
     
-    defaults?.dictionaryRepresentation().keys.forEach({ (key) -> () in
+    NSUserDefaults(suiteName: Akaibu.SuiteNameAkaibu)?.dictionaryRepresentation().keys.forEach({ (key) -> () in
       defaults?.removeObjectForKey(key)
     })
   }
